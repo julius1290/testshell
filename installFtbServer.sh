@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 sudo apt update && apt install --assume-yes git wget curl
@@ -23,7 +24,7 @@ cd server
 cpucount="$(nproc --all)"
 echo $cpucount
 x=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
-ram=$((x/1024-1024))
+ram=$((x/1024-1024))M
 echo $ram
 wget https://media.forgecdn.net/files/2690/320/FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
 sudo apt update && apt install unzip
@@ -39,4 +40,7 @@ touch eula.txt
 echo 'eula=true' > eula.txt
 cat eula.txt
 chmod +x ServerStart.sh
+#replaceRam=MAX_RAM="2048M"
+#maxRam=MAX_RAM="$ram"
+#sed "s/$replaceRam/$maxRam/" settings.sh
 tmux new-session -d -s minecraft './ServerStart.sh'
