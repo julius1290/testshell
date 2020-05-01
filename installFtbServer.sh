@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt update && apt install zsh git wget curl
 if [ $(id -u) -eq 0 ]; then
 	username = "minecraft"
 	read -s -p "Gebe ein passwort ein : " password
@@ -11,6 +12,7 @@ if [ $(id -u) -eq 0 ]; then
 		pass=$(perl -e 'print crypt(ARGV[0], "password")' $password)
 		useradd -m -p "$pass" "$username"
 		[ $? -eq 0 ] && echo "User has been added to system" || echo "Failed to add user"
+	fi
 else
 	echo "Only root can run this install script"
 	exit 2
