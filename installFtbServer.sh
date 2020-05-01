@@ -30,7 +30,11 @@ wget https://media.forgecdn.net/files/2690/320/FTB+Presents+Direwolf20+1.12-1.12
 sudo apt update && apt install unzip
 unzip -a FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
 rm FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
-sudo apt update && apt install --assume-yes tmux
+sudo apt update && apt install --assume-yes tmux ufw
+ufw allow ssh
+ufw allow 25565/tcp
+ufw allow 25565/udp
+echo "y" | sudo ufw enable
 sudo apt update && apt install --assume-yes apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
 sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
