@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt update && apt install zsh git wget curl
 if [ $(id -u) -eq 0 ]; then
 	username = "minecraft"
 	read -s -p "Gebe ein passwort ein : " password
