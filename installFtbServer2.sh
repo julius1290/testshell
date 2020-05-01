@@ -21,7 +21,7 @@ cd /home/$username
 mkdir server
 cd server
 wget https://media.forgecdn.net/files/2690/320/FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
-sudo apt update && apt install --assume-yes unzip
+sudo apt update && apt install unzip
 unzip -a FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
 rm FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
 sudo apt update && apt install --assume-yes tmux
@@ -34,3 +34,4 @@ touch eula.txt
 echo 'eula=true' > eula.txt
 cat eula.txt
 chmod +x ServerStart.sh
+tmux new-session -d -s minecraft './ServerStart.sh'
