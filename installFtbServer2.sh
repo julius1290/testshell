@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt update && apt install zsh git wget curl
+sudo apt update && apt install --assume-yes git wget curl
 if [ $(id -u) -eq 0 ]; then
         read -p "username : " username
         read -s -p "Gebe ein passwort ein : " password
@@ -21,14 +21,14 @@ cd /home/$username
 mkdir server
 cd server
 wget https://media.forgecdn.net/files/2690/320/FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
-sudo apt update && apt install unzip
+sudo apt update && apt install --assume-yes unzip
 unzip -a FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
 rm FTB+Presents+Direwolf20+1.12-1.12.2-2.5.0-Server.zip
-sudo apt update && apt install tmux
-sudo apt update && apt install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
+sudo apt update && apt install --assume-yes tmux
+sudo apt update && apt install --assume-yes apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
 sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-sudo apt update && apt install adoptopenjdk-8-hotspot
+sudo apt update && apt install --assume-yes adoptopenjdk-8-hotspot
 java -version
 touch eula.txt
 echo 'eula=true' > eula.txt
